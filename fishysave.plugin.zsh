@@ -12,8 +12,6 @@ function save() {
     return 1
   fi
 
-  mkdir -p "$alias_dir" "$func_dir"
-
   if alias "$name" &>/dev/null; then
     local alias_def
     alias_def=$(alias "$name")

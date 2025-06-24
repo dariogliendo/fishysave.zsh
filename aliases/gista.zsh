@@ -1,0 +1,1 @@
+alias gista='git status'
