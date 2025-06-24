@@ -1,9 +1,11 @@
 local base_dir="${ZSH_SAVE_DIR:-$HOME/.zshrc_fishy}"
-local alias_dir="$base_dir/aliases"
-local func_dir="$base_dir/functions"
 
-function save() {
+function fishysave() {
   local name="$1"
+
+  local base_dir="${ZSH_SAVE_DIR:-$HOME/.zshrc_fishy}"
+  local alias_dir="$base_dir/aliases"
+  local func_dir="$base_dir/functions"
   
   if [[ -z "$name" ]]; then
     echo "No parameter provided"
@@ -16,21 +18,19 @@ function save() {
     alias_def=$(alias "$name")
 
     echo "alias $alias_def" > "$alias_dir/$name.zsh"
-    echo "Alias $name saved"
+    echo "Alias $name saved to $alias_dir/$name.zsh"
   elif whence -w "$name" | grep -q function; then
     local func_def
     func_def=$(functions "$name")
     echo "$func_def" > "$func_dir/$name.zsh"
-    echo "Function $name saved"
+    echo "Function $name saved to $func_dir/$name.zsh"
   else
     echo "Couldn't find a declared function or alias named '$name'"
     return 2
   fi
-
-  echo $base_dir
 }
 
-mkdir -p "$alias_dir" "$func_dir"
+mkdir -p "$base_dir/aliases" "$base_dir/functions"
 
 setopt localoptions nullglob
 

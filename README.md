@@ -15,3 +15,18 @@ add fishysave to the plugins array of your zshrc file:
 plugins=(... fishysave)
 
 ```
+
+## Usage
+
+```bash
+# Save an alias
+alias lsal="ls -al"
+fishysave lsal
+
+# Save a function
+function lsa() {
+    ls -al
+}
+fishysave lsa
+
+```
