@@ -1,14 +1,9 @@
-
 local base_dir="${ZSH_SAVE_DIR:-$HOME/.zshrc_fishy}"
 local alias_dir="$base_dir/aliases"
 local func_dir="$base_dir/functions"
 
 function save() {
   local name="$1"
-
-  local base_dir="${ZSH_SAVE_DIR:-$HOME/.zshrc_fishy}"
-  local alias_dir="$base_dir/aliases"
-  local func_dir="$base_dir/functions"
   
   if [[ -z "$name" ]]; then
     echo "No parameter provided"
