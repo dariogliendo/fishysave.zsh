@@ -1,1 +1,0 @@
-alias lsal='ls -al'
