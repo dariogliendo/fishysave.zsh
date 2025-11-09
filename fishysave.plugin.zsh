@@ -9,7 +9,7 @@ function fishysave() {
   
   if [[ -z "$name" ]]; then
     echo "No parameter provided"
-    echo "Usage: save <alias or function>"
+    echo "Usage: fishysave <alias or function>"
     return 1
   fi
 
